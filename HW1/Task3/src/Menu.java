@@ -17,6 +17,8 @@ public class Menu {
         strMenu.append("6.Питомец дерет кожаный диван \n");
         strMenu.append("7.Питомец требует внимания \n");
         strMenu.append("8.Питомец требует еды \n");
+        strMenu.append("9.Питомец играется  \n");
+
 
         strMenu.append("10.Выйти \n");
         System.out.println(strMenu);
