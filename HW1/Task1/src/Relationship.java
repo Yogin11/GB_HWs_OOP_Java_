@@ -1,11 +1,13 @@
 public enum Relationship {
     parent,
     child,
-    sibling
+    sibling,
+    soninlaw,
+    motherinlaw,
 //    cousen,
-//    grandparent,
-//    grandchild,
-//    greatgrandtparent,
+   grandparent,
+   grandchild,
+   greatgrandtparent
 //    greatgrandchild,
 //    father,
 //    mother,

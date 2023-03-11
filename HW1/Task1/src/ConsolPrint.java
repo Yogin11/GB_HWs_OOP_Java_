@@ -44,7 +44,7 @@ public class ConsolPrint {
             System.out.println();
         }
         if (some.equals("родились после")) {
-            System.out.printf("Родившиеся ранее %d года: %s",year,new Research(gt).bornYear(year, '>'));
+            System.out.printf("Родившиеся после %d года: %s",year,new Research(gt).bornYear(year, '>'));
             System.out.println();
         }
     }
