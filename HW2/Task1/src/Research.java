@@ -15,7 +15,7 @@ public class Research implements BornAndDead{
         this.relDict = geoTree.relDict;
     }
 
-    public HashSet<String> findParChild(Person p, Relat re) {
+    public HashSet<String> findParChild(Human p, Relat re) {
         for (Node nod : tree) {
             if (nod.p1.getFullName().equals(p.getFullName()) && nod.re.equals(re)) {
                 result0.add(nod.p2.getFullName());
@@ -24,20 +24,20 @@ public class Research implements BornAndDead{
         return result0;
     }
 
-    public ArrayList<String> searchUpDown(Person p, Relat re, int n) {
+    public ArrayList<String> searchUpDown(Human p, Relat re, int n) {
         boolean bol = false;
         if (re.equals(Relat.parent)) {
             n--;
         } else n++;
-        ArrayList<Person> arrPerRelated = new ArrayList<>();
+        ArrayList<Human> arrPerRelated = new ArrayList<>();
         for (Node nod : tree) {
             if (nod.p1.getFullName().equals(p.getFullName()) && nod.re.equals(re)) {
-                bol = result1.add(nod.p2.getFullName() + " " + relDict.get(levelRel.get(n) + nod.p2.getPol()));
+                bol = result1.add(nod.p2.getFullName() + " " + relDict.getOrDefault(levelRel.get(n) + nod.p2.getPol(), "родственник"));
                 arrPerRelated.add(nod.p2);
             }
         }
         if (bol) {
-            for (Person pr : arrPerRelated) {
+            for (Human pr : arrPerRelated) {
                 return searchUpDown(pr, re, n);
             }
         }
@@ -60,9 +60,9 @@ public class Research implements BornAndDead{
         return bYears;
 
     }
-    public HashSet<String> searchSiblingsRelatives(Person p, String var) {
+    public HashSet<String> searchSiblingsRelatives(Human p, String var) {
         boolean bol = false;
-        ArrayList<Person> arrPerRelated = new ArrayList<>();
+        ArrayList<Human> arrPerRelated = new ArrayList<>();
         for (Node nod : tree) {
             if (nod.p1.getFullName().equals(p.getFullName()) && nod.re.equals(Relat.child)) {
                 bol = true;
@@ -70,7 +70,7 @@ public class Research implements BornAndDead{
             }
         }
         if (bol) {
-            for (Person pr : arrPerRelated) {
+            for (Human pr : arrPerRelated) {
                 for (Node nod : tree) {
                     if (nod.p1.getFullName().equals(pr.getFullName()) && nod.re.equals(Relat.parent) && !nod.p2.getFullName().equals(p.getFullName())) {
                         if (var.equals("племянники")){

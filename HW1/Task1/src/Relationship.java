@@ -1,4 +1,6 @@
-public enum Relationship {
+
+
+public enum  Relationship {
     parent,
     child,
     sibling,
@@ -17,3 +19,4 @@ public enum Relationship {
 //    sister
 
 }
+
