@@ -15,12 +15,12 @@ public abstract class GeoTree {
         return tree;
     }
 
-    public void appendRelations(Person firstPer, Person secondPer, Relat relDirect, Relat relOpposite) {
+    public void appendRelations(Human firstPer, Human secondPer, Relat relDirect, Relat relOpposite) {
         tree.add(new Node(firstPer, relDirect, secondPer));
         tree.add(new Node(secondPer, relOpposite, firstPer));
     }
 
-    public void appendRelationsPlusType(Person firstPer, Person secondPer, Relat relDirect, Relat relOpposite, String per1, String per2) {
+    public void appendRelationsPlusType(Human firstPer, Human secondPer, Relat relDirect, Relat relOpposite, String per1, String per2) {
         appendRelations(firstPer,secondPer,relDirect, relOpposite);
         relDict.put(relDirect.toString() + firstPer.getPol(), per1);
         relDict.put(relOpposite.toString() + secondPer.getPol(), per2);
