@@ -2,8 +2,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Human babanna= new Person2("Анна", "Александровна", Human.sex.female,1928, 2022);
-        Human sasha= new Person2("Александр", "Васильевич", Human.sex.male,1944,2014);
+    
+        Human babanna= new SomePerson("Анна", Human.sex.female,1928);
+        Human sasha = new SomePerson("Александр", Human.sex.male, 1944);
 
         Human klava= new Person("Клавдия", "Федоровна", Human.sex.female,1915, 2005);
         Human vasya= new Person("Василий", "Яковлевич", Human.sex.male,1910,1971);
@@ -16,23 +17,23 @@ public class Main {
         Human denis = new Person("Денис","Игоревич", Human.sex.male,1991,0 );
         Human pavel = new Person("Павел","Иванович", Human.sex.male,1962,1978 );
 
-        Tree1 tree = new Tree1();
+        GeoTree tree = new Tree1();
 
-        tree.appendRelationsPlusType(vasya,ivan, Relat.parent,Relat.child, "отец","сын");
+        tree.appendRelationsPlusRole(vasya,ivan, Relat.parent,Relat.child, "отец","сын");
         tree.appendRelations(klava,ivan, Relat.parent,Relat.child );
-        tree.appendRelationsPlusType(klava,sasha, Relat.parent,Relat.child, "мать","сын");
-        tree.appendRelationsPlusType(babanna,sasha, Relat.parent,Relat.child, "теща","зять");
-
-        tree.appendRelationsPlusType(ivan,lena, Relat.parent,Relat.child, "отец", "дочь");
-        tree.appendRelationsPlusType(klava,alex, Relat.grandparent,Relat.grandchild, "бабушка","внук");
+        tree.appendRelationsPlusRole(klava,sasha, Relat.parent,Relat.child, "мать","сын");
+        tree.appendRelationsPlusRole(babanna,sasha, Relat.motherinlaw,Relat.soninlaw, "теща","зять");
         tree.appendRelations(ivan,alex, Relat.parent,Relat.child );
-        tree.appendRelationsPlusType(valya,alex, Relat.parent,Relat.child, "мать","сын" );
+
+        tree.appendRelationsPlusRole(ivan,lena, Relat.parent,Relat.child, "отец", "дочь");
+        tree.appendRelationsPlusRole(klava,alex, Relat.grandparent,Relat.grandchild, "бабушка","внук");
+        tree.appendRelations(valya,alex, Relat.parent,Relat.child);
         tree.appendRelations(valya,lena, Relat.parent,Relat.child );
-        tree.appendRelationsPlusType(lena,ilya, Relat.parent,Relat.child, "мать","сын" );
+        tree.appendRelations(lena,ilya, Relat.parent,Relat.child);
         tree.appendRelations(lena,denis, Relat.parent,Relat.child );
         tree.appendRelations(ivan,pavel, Relat.parent,Relat.child );
         tree.appendRelations(valya,pavel, Relat.parent,Relat.child );
-        tree.appendRelationsPlusType(igor,valya, Relat.soninlaw,Relat.motherinlaw, "зять","теща" );
+        tree.appendRelationsPlusRole(igor,valya, Relat.soninlaw,Relat.motherinlaw, "зять","теща" );
 
 
         ConsolPrint printOut = new ConsolPrint(tree);

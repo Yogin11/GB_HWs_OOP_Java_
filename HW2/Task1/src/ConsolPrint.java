@@ -1,12 +1,10 @@
 
 public class ConsolPrint {
-//    String data;
     GeoTree tree;
-//    Research new Research(tree);
 
     public ConsolPrint(GeoTree tree) {
         this.tree = tree;
-//        new Research(tree) = new Research(tree);
+
     }
     public void resultsPrint (String request, Human stunt){
         switch (request) {

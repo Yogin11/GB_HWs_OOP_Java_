@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public abstract class GeoTree {
+public abstract class GeoTree implements Appendable {
     private final ArrayList<Node> tree = new ArrayList<>();
     public HashMap<String,String> relDict= new HashMap<>();
     public HashMap<Integer,String> levelRel= new HashMap<>();
@@ -20,10 +20,10 @@ public abstract class GeoTree {
         tree.add(new Node(secondPer, relOpposite, firstPer));
     }
 
-    public void appendRelationsPlusType(Human firstPer, Human secondPer, Relat relDirect, Relat relOpposite, String per1, String per2) {
+    public void appendRelationsPlusRole(Human firstPer, Human secondPer, Relat relDirect, Relat relOpposite, String role1, String role2) {
         appendRelations(firstPer,secondPer,relDirect, relOpposite);
-        relDict.put(relDirect.toString() + firstPer.getPol(), per1);
-        relDict.put(relOpposite.toString() + secondPer.getPol(), per2);
+        relDict.put(relDirect.toString() + firstPer.getPol(), role1);
+        relDict.put(relOpposite.toString() + secondPer.getPol(), role2);
 //        System.out.println( relDict);
     }
 

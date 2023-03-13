@@ -38,9 +38,11 @@ public class Research implements BornAndDead{
         }
         if (bol) {
             for (Human pr : arrPerRelated) {
-                return searchUpDown(pr, re, n);
+                searchUpDown(pr, re, n);
             }
+            return result1;
         }
+        // else return;
             return result1;
     }
     @Override

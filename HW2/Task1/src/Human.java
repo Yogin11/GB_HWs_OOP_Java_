@@ -8,21 +8,31 @@ public abstract class Human {
         male,
         female
     }
-    public Human (String Name, String patronymic, sex pol, int birthyear, int deathyear) {
+
+    public Human(String Name, String patronymic, sex pol, int birthyear, int deathyear) {
         this.Name = Name;
         this.patronymic = patronymic;
         this.pol = pol;
         this.birthyear = birthyear;
         this.deathyear = deathyear;
     }
+    public Human (String Name, sex pol, int birthyear) {
+        this.Name = Name;
+        this.pol = pol;
+        this.birthyear = birthyear;
+    }
 
     public String getName() {
         return Name;
     }
+
     public String getFullName() {
         return this.Name + " " + this.patronymic;
     }
-
+    public String getNameBirth() {
+        return this.Name + " " + this.birthyear;
+    }
+    
     public String getPatronymic() {
         return patronymic;
     }
